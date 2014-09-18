@@ -16,7 +16,7 @@ public partial class _Default : System.Web.UI.Page
 
         string soapContent = ""; //soap content
 
-        soapContent = "<ns1:setTransaction>";
+        soapContent = "<ns0:setTransaction>";
         soapContent += "<Api>ONE_ZERO</Api>";
         soapContent += "<Safekey>{45D5C765-16D2-45A4-8C41-8D6F84042F8C}</Safekey>";
 
@@ -52,7 +52,7 @@ public partial class _Default : System.Web.UI.Page
         soapContent += "<currencyCode>ZAR</currencyCode>";
         soapContent += "<description>Test Store Order: 1351079862</description>";
         soapContent += "</Basket>";
-        soapContent += "</ns1:setTransaction>";
+        soapContent += "</ns0:setTransaction>";
         // construct soap object
 
         XmlDocument soapEnvelopeXml = CreateSoapEnvelope(soapContent);
@@ -108,19 +108,22 @@ public partial class _Default : System.Web.UI.Page
     static string redirectAPI = "/rpp.do?PayUReference=";
 
     static string _soapEnvelope =
-                 @"<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' 
-                                    xmlns:ns1='http://soap.api.controller.web.payjar.com/' 
-                                    xmlns:ns2='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>
-                                    <SOAP-ENV:Header>
-                                        <wsse:Security SOAP-ENV:mustUnderstand='1' xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>
-                                            <wsse:UsernameToken wsu:Id='UsernameToken-9' xmlns:wsu='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd'>
-                                                <wsse:Username></wsse:Username>
-                                                <wsse:Password Type='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText'></wsse:Password>
-                                            </wsse:UsernameToken>
-                                        </wsse:Security>
-                                    </SOAP-ENV:Header>
-                                     <SOAP-ENV:Body>
-                                     </SOAP-ENV:Body>
+                @"<SOAP-ENV:Envelope xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/'
+                        xmlns:ns0='http://soap.api.controller.web.payjar.com/'
+                        xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'
+                        xmlns:SOAP-ENC='http://www.w3.org/2003/05/soap-encoding'
+                        xmlns:ns1='http://schemas.xmlsoap.org/soap/envelope/'
+                        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+                    <SOAP-ENV:Header>
+                        <wsse:Security SOAP-ENV:mustUnderstand='1' xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>
+                            <wsse:UsernameToken wsu:Id='UsernameToken-9' xmlns:wsu='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd'>
+                                <wsse:Username></wsse:Username>
+                                <wsse:Password Type='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText'></wsse:Password>
+                            </wsse:UsernameToken>
+                        </wsse:Security>
+                    </SOAP-ENV:Header>
+                    <ns1:Body>
+                    </ns1:Body>
                 </SOAP-ENV:Envelope>";
 
     /// <summary>
@@ -145,7 +148,7 @@ public partial class _Default : System.Web.UI.Page
     private static XmlDocument CreateSoapEnvelope(string content)
     {
         StringBuilder sb = new StringBuilder(_soapEnvelope);
-        sb.Insert(sb.ToString().IndexOf("</SOAP-ENV:Body>"), content);
+        sb.Insert(sb.ToString().IndexOf("</ns1:Body>"), content);
 
         // create an empty soap envelope
         XmlDocument soapEnvelopeXml = new XmlDocument();
