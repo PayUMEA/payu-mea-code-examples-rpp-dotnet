@@ -1,0 +1,1047 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.api.controller.web.payjar.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="EnterpriseAPISoapService" targetNamespace="http://soap.api.controller.web.payjar.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:ns1="http://soap.api.controller.web.payjar.com/" xmlns:ns2="https://www.payu.co.za/PayUMapLoader" targetNamespace="https://www.payu.co.za/SetTransactionResponseMessage" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://soap.api.controller.web.payjar.com/" />
+      <xs:import namespace="https://www.payu.co.za/PayUMapLoader" />
+      <xs:complexType name="SetTransactionResponseMessage">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns2:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="customFields" nillable="true" type="ns1:customField" />
+              <xs:element minOccurs="0" name="displayMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="merchantReference" type="xs:string" />
+              <xs:element minOccurs="0" name="payUReference" type="xs:string" />
+              <xs:element minOccurs="0" name="pointOfFailure" type="xs:string" />
+              <xs:element minOccurs="0" name="requestTrace" type="xs:string" />
+              <xs:element minOccurs="0" name="resultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="resultMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="stage" type="xs:string" />
+              <xs:element name="successful" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="https://www.payu.co.za/PayUMapLoader" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="PayUMapLoader" abstract="true">
+        <xs:sequence />
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ns3="https://www.payu.co.za/PayUMapLoader" xmlns:ns1="http://soap.api.controller.web.payjar.com/" xmlns:ns2="http://jaxb.dev.java.net/array" targetNamespace="https://www.payu.co.za/LookupTransactionResponseMessage" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://soap.api.controller.web.payjar.com/" />
+      <xs:import namespace="http://jaxb.dev.java.net/array" />
+      <xs:import namespace="https://www.payu.co.za/PayUMapLoader" />
+      <xs:complexType name="LookupTransactionResponseMessage">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns3:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="customFields" nillable="true" type="ns1:customField" />
+              <xs:element minOccurs="0" name="displayMessage" type="xs:string" />
+              <xs:element name="lookupData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="entry">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="key" type="xs:string" />
+                          <xs:element minOccurs="0" name="value" type="ns2:stringArray" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="merchantReference" type="xs:string" />
+              <xs:element minOccurs="0" name="payUReference" type="xs:string" />
+              <xs:element minOccurs="0" name="pointOfFailure" type="xs:string" />
+              <xs:element minOccurs="0" name="requestTrace" type="xs:string" />
+              <xs:element minOccurs="0" name="resultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="resultMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="stage" type="xs:string" />
+              <xs:element name="successful" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ns1="http://soap.api.controller.web.payjar.com/" xmlns:ns2="https://www.payu.co.za/PayUMapLoader" targetNamespace="https://www.payu.co.za/GetTransactionResponseMessage" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://soap.api.controller.web.payjar.com/" />
+      <xs:import namespace="https://www.payu.co.za/PayUMapLoader" />
+      <xs:complexType name="GetTransactionResponseMessage">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns2:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="bankDepositDetails" nillable="true" type="ns1:bankDepositDetails" />
+              <xs:element minOccurs="0" name="basket" type="ns1:basket" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="customFields" nillable="true" type="ns1:customField" />
+              <xs:element minOccurs="0" name="displayMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="fraud" type="ns1:fraud" />
+              <xs:element minOccurs="0" name="merchantReference" type="xs:string" />
+              <xs:element minOccurs="0" name="payUReference" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="paymentMethodsUsed" nillable="true" type="ns1:iPaymentMethod" />
+              <xs:element minOccurs="0" name="pointOfFailure" type="xs:string" />
+              <xs:element minOccurs="0" name="recurringDetails" type="ns1:recurringDetails" />
+              <xs:element minOccurs="0" name="requestTrace" type="xs:string" />
+              <xs:element minOccurs="0" name="resultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="resultMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="stage" type="xs:string" />
+              <xs:element name="successful" type="xs:boolean" />
+              <xs:element minOccurs="0" name="transactionState" type="ns1:payloadStatusEnum" />
+              <xs:element minOccurs="0" name="transactionType" type="ns1:transactionType" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ns1="http://soap.api.controller.web.payjar.com/" xmlns:ns2="https://www.payu.co.za/PayUMapLoader" targetNamespace="https://www.payu.co.za/DoTransactionResponseMessage" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://soap.api.controller.web.payjar.com/" />
+      <xs:import namespace="https://www.payu.co.za/PayUMapLoader" />
+      <xs:complexType name="DoTransactionResponseMessage">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns2:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="bankDepositDetails" nillable="true" type="ns1:bankDepositDetails" />
+              <xs:element minOccurs="0" name="basket" type="ns1:basket" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="customFields" nillable="true" type="ns1:customField" />
+              <xs:element minOccurs="0" name="displayMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="fraud" type="ns1:fraud" />
+              <xs:element minOccurs="0" name="merchantReference" type="xs:string" />
+              <xs:element minOccurs="0" name="payUReference" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="paymentMethodsUsed" nillable="true" type="ns1:iPaymentMethod" />
+              <xs:element minOccurs="0" name="pointOfFailure" type="xs:string" />
+              <xs:element minOccurs="0" name="recurringDetails" type="ns1:recurringDetails" />
+              <xs:element minOccurs="0" name="requestTrace" type="xs:string" />
+              <xs:element minOccurs="0" name="resultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="resultMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="secure3D" type="ns1:secure3D" />
+              <xs:element minOccurs="0" name="stage" type="xs:string" />
+              <xs:element name="successful" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ns1="http://soap.api.controller.web.payjar.com/" xmlns:ns2="https://www.payu.co.za/PayUMapLoader" targetNamespace="https://www.payu.co.za/DeleteTransactionResponseMessage" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://soap.api.controller.web.payjar.com/" />
+      <xs:import namespace="https://www.payu.co.za/PayUMapLoader" />
+      <xs:complexType name="ManagePaymentMethodResponseMessage">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns2:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="customFields" nillable="true" type="ns1:customField" />
+              <xs:element minOccurs="0" name="displayMessage" type="xs:string" />
+              <xs:element name="managePaymentMethodData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="entry">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="key" type="xs:string" />
+                          <xs:element minOccurs="0" name="value" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="merchantReference" type="xs:string" />
+              <xs:element minOccurs="0" name="payUReference" type="xs:string" />
+              <xs:element minOccurs="0" name="pointOfFailure" type="xs:string" />
+              <xs:element minOccurs="0" name="requestTrace" type="xs:string" />
+              <xs:element minOccurs="0" name="resultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="resultMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="stage" type="xs:string" />
+              <xs:element name="successful" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DeleteTransactionResponseMessage">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns2:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="customFields" nillable="true" type="ns1:customField" />
+              <xs:element minOccurs="0" name="displayMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="merchantReference" type="xs:string" />
+              <xs:element minOccurs="0" name="payUReference" type="xs:string" />
+              <xs:element minOccurs="0" name="pointOfFailure" type="xs:string" />
+              <xs:element minOccurs="0" name="requestTrace" type="xs:string" />
+              <xs:element minOccurs="0" name="resultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="resultMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="stage" type="xs:string" />
+              <xs:element name="successful" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:ns2="https://www.payu.co.za/DoTransactionResponseMessage" xmlns:ns5="http://jaxb.dev.java.net/array" xmlns:ns7="https://www.payu.co.za/SetTransactionResponseMessage" xmlns:ns4="https://www.payu.co.za/GetTransactionResponseMessage" xmlns:ns6="https://www.payu.co.za/LookupTransactionResponseMessage" xmlns:ns3="https://www.payu.co.za/DeleteTransactionResponseMessage" xmlns:ns1="https://www.payu.co.za/PayUMapLoader" elementFormDefault="unqualified" targetNamespace="http://soap.api.controller.web.payjar.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="https://www.payu.co.za/PayUMapLoader" />
+      <xs:import namespace="https://www.payu.co.za/DoTransactionResponseMessage" />
+      <xs:import namespace="https://www.payu.co.za/DeleteTransactionResponseMessage" />
+      <xs:import namespace="https://www.payu.co.za/GetTransactionResponseMessage" />
+      <xs:import namespace="http://jaxb.dev.java.net/array" />
+      <xs:import namespace="https://www.payu.co.za/LookupTransactionResponseMessage" />
+      <xs:import namespace="https://www.payu.co.za/SetTransactionResponseMessage" />
+      <xs:element name="doDeleteTransaction" type="tns:doDeleteTransaction" />
+      <xs:element name="doDeleteTransactionResponse" type="tns:doDeleteTransactionResponse" />
+      <xs:element name="doTransaction" type="tns:doTransaction" />
+      <xs:element name="doTransactionResponse" type="tns:doTransactionResponse" />
+      <xs:element name="getLookupTransaction" type="tns:getLookupTransaction" />
+      <xs:element name="getLookupTransactionResponse" type="tns:getLookupTransactionResponse" />
+      <xs:element name="getTransaction" type="tns:getTransaction" />
+      <xs:element name="getTransactionResponse" type="tns:getTransactionResponse" />
+      <xs:element name="hi" type="tns:hi" />
+      <xs:element name="hiResponse" type="tns:hiResponse" />
+      <xs:element name="managePaymentMethod" type="tns:managePaymentMethod" />
+      <xs:element name="managePaymentMethodResponse" type="tns:managePaymentMethodResponse" />
+      <xs:element name="setTransaction" type="tns:setTransaction" />
+      <xs:element name="setTransactionResponse" type="tns:setTransactionResponse" />
+      <xs:complexType name="doTransaction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Api" type="xs:string" />
+          <xs:element minOccurs="0" name="Safekey" type="xs:string" />
+          <xs:element minOccurs="0" name="TransactionType" type="tns:transactionType" />
+          <xs:element minOccurs="0" name="AuthenticationType" type="tns:authenticationType" />
+          <xs:element minOccurs="0" name="AdditionalInformation" type="tns:additionalInfo" />
+          <xs:element minOccurs="0" name="Customer" type="tns:customer" />
+          <xs:element minOccurs="0" name="Basket" type="tns:basket" />
+          <xs:element minOccurs="0" name="Fraud" type="tns:fraud" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Creditcard" type="tns:creditCard" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Eft" type="tns:eft" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DiscoveryMiles" type="tns:discoveryMiles" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PayPal" type="tns:payPal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Debitcard" type="tns:debitCard" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Loyalty" type="tns:loyaltyCard" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BankTransfer" type="tns:bankTransfer" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Wallet" type="tns:wallet" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ThirdParty" type="tns:thirdParty" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Ebucks" type="tns:ebucks" />
+          <xs:element minOccurs="0" name="Autopay" type="tns:autoPay" />
+          <xs:element minOccurs="0" name="Soulstace" type="tns:soulstace" />
+          <xs:element minOccurs="0" name="Globalpay" type="tns:globalpay" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Customfield" type="tns:customField" />
+          <xs:element minOccurs="0" name="Credit" type="tns:credit" />
+          <xs:element minOccurs="0" name="TransactionRecord" type="tns:transactionRecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="additionalInfo">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="callCenterRepId" type="xs:string" />
+              <xs:element minOccurs="0" name="cancelUrl" type="xs:string" />
+              <xs:element minOccurs="0" name="demoMode" type="xs:string" />
+              <xs:element minOccurs="0" name="deviceId" type="xs:string" />
+              <xs:element minOccurs="0" name="devicePlatform" type="xs:string" />
+              <xs:element minOccurs="0" name="locale" type="xs:string" />
+              <xs:element minOccurs="0" name="merchantReference" type="xs:string" />
+              <xs:element minOccurs="0" name="notificationUrl" type="xs:string" />
+              <xs:element minOccurs="0" name="payUReference" type="xs:string" />
+              <xs:element minOccurs="0" name="redirectChannel" type="xs:string" />
+              <xs:element minOccurs="0" name="returnUrl" type="xs:string" />
+              <xs:element minOccurs="0" name="secure3d" type="xs:string" />
+              <xs:element minOccurs="0" name="showBudget" type="xs:string" />
+              <xs:element minOccurs="0" name="storePaymentMethod" type="xs:string" />
+              <xs:element minOccurs="0" name="supportedPaymentMethods" type="xs:string" />
+              <xs:element minOccurs="0" name="traceReference" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionalCode" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionalMessage" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionalStatus" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="customer">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="address1" type="xs:string" />
+              <xs:element minOccurs="0" name="address2" type="xs:string" />
+              <xs:element minOccurs="0" name="addressCity" type="xs:string" />
+              <xs:element minOccurs="0" name="countryCode" type="xs:string" />
+              <xs:element minOccurs="0" name="countryOfResidence" type="xs:string" />
+              <xs:element minOccurs="0" name="dob" type="xs:string" />
+              <xs:element minOccurs="0" name="email" type="xs:string" />
+              <xs:element minOccurs="0" name="firstName" type="xs:string" />
+              <xs:element minOccurs="0" name="ip" type="xs:string" />
+              <xs:element minOccurs="0" name="known" type="xs:string" />
+              <xs:element minOccurs="0" name="language" type="xs:string" />
+              <xs:element minOccurs="0" name="lastName" type="xs:string" />
+              <xs:element minOccurs="0" name="merchantUserId" type="xs:string" />
+              <xs:element minOccurs="0" name="mobile" type="xs:string" />
+              <xs:element minOccurs="0" name="postCode" type="xs:string" />
+              <xs:element minOccurs="0" name="regionalId" type="xs:string" />
+              <xs:element minOccurs="0" name="regionalIdType" type="xs:string" />
+              <xs:element minOccurs="0" name="stateCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="basket">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="currencyCode" type="xs:string" />
+              <xs:element minOccurs="0" name="description" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="productLineItem" nillable="true" type="tns:productLineItem" />
+              <xs:element minOccurs="0" name="shippingDetails" type="tns:shippingDetails" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="productLineItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="amount" type="xs:string" />
+          <xs:element minOccurs="0" name="costAmount" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="giftMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="productCode" type="xs:string" />
+          <xs:element minOccurs="0" name="quantity" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientAddress1" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientAddress2" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientCity" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientCountryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientEmail" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientFirstName" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientLastName" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientPhone" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientPostalCode" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientStateCode" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="sku" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="shippingAddress1" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingAddress2" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingAddressCity" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingCountryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingEmail" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingFax" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingId" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingLastName" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingMethod" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingPhone" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingPostCode" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingStateCode" type="xs:string" />
+          <xs:element minOccurs="0" name="shppingFirstName" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fraud">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="caseManagerNote" type="xs:string" />
+              <xs:element minOccurs="0" name="checkFraudOverride" type="xs:string" />
+              <xs:element minOccurs="0" name="merchantWebSite" type="xs:string" />
+              <xs:element minOccurs="0" name="pcFingerPrint" type="xs:string" />
+              <xs:element minOccurs="0" name="resultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="resultMessage" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="iPaymentMethod" abstract="true">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="defaultPM" type="xs:string" />
+              <xs:element minOccurs="0" name="pmId" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="creditCard">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="budgetPeriod" type="xs:string" />
+              <xs:element minOccurs="0" name="cardExpiry" type="xs:string" />
+              <xs:element minOccurs="0" name="cardNumber" type="xs:string" />
+              <xs:element minOccurs="0" name="cvv" type="xs:string" />
+              <xs:element minOccurs="0" name="description" type="xs:string" />
+              <xs:element minOccurs="0" name="fraudIndex" type="xs:string" />
+              <xs:element minOccurs="0" name="gatewayCode" type="xs:string" />
+              <xs:element minOccurs="0" name="gatewayReference" type="xs:string" />
+              <xs:element minOccurs="0" name="information" type="xs:string" />
+              <xs:element minOccurs="0" name="knownCard" type="xs:string" />
+              <xs:element minOccurs="0" name="nameOnCard" type="xs:string" />
+              <xs:element minOccurs="0" name="verified" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="eft">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+              <xs:element minOccurs="0" name="accountType" type="xs:string" />
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="bankName" type="xs:string" />
+              <xs:element minOccurs="0" name="branchNumber" type="xs:string" />
+              <xs:element minOccurs="0" name="currency" type="xs:string" />
+              <xs:element minOccurs="0" name="eventType" type="xs:string" />
+              <xs:element minOccurs="0" name="reference" type="xs:string" />
+              <xs:element minOccurs="0" name="settlementDate" type="xs:string" />
+              <xs:element minOccurs="0" name="timeLimit" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="discoveryMiles">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="currency" type="xs:string" />
+              <xs:element minOccurs="0" name="reference" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="payPal">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="currency" type="xs:string" />
+              <xs:element minOccurs="0" name="payerId" type="xs:string" />
+              <xs:element minOccurs="0" name="token" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionId" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="debitCard">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="currency" type="xs:string" />
+              <xs:element minOccurs="0" name="reference" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="loyaltyCard">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="information" type="xs:string" />
+              <xs:element minOccurs="0" name="membershipNumber" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="bankTransfer">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="accountHolder" type="xs:string" />
+              <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+              <xs:element minOccurs="0" name="accountType" type="xs:string" />
+              <xs:element minOccurs="0" name="actionDate" type="xs:string" />
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="branchCode" type="xs:string" />
+              <xs:element minOccurs="0" name="clearanceDate" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="wallet">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="availableBalance" type="xs:string" />
+              <xs:element minOccurs="0" name="loayltyBalance" type="xs:string" />
+              <xs:element minOccurs="0" name="loyaltyAmountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="reservedBalance" type="xs:string" />
+              <xs:element minOccurs="0" name="sufficientFunds" type="xs:string" />
+              <xs:element minOccurs="0" name="WalletBalance" type="tns:walletBalance" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="walletBalance">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="Balance" type="tns:balance" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="balance">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amount" type="xs:string" />
+              <xs:element minOccurs="0" name="label" type="xs:string" />
+              <xs:element minOccurs="0" name="type" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="thirdParty">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="information" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ebucks">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="ebucksErrorCode" type="xs:string" />
+              <xs:element minOccurs="0" name="ebucksMerchantId" type="xs:string" />
+              <xs:element minOccurs="0" name="ebucksMerchantReference" type="xs:string" />
+              <xs:element minOccurs="0" name="ebucksReference" type="xs:string" />
+              <xs:element minOccurs="0" name="ebucksToken" type="xs:string" />
+              <xs:element minOccurs="0" name="ebucksValidity" type="xs:string" />
+              <xs:element minOccurs="0" name="ebucksValueGranted" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="autoPay">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayBeneficiaryRef" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayCardNumber" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayErrorCode" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayNotificationHashedSignature" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayPaymentDate" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayPaymentrecordId" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayRandomSeed" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayReference" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayStatus" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayTotalAmount" type="xs:string" />
+              <xs:element minOccurs="0" name="autoPayTransactionId" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="soulstace">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="basketAmountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="basketCurrency" type="xs:string" />
+              <xs:element minOccurs="0" name="basketDescription" type="xs:string" />
+              <xs:element minOccurs="0" name="customerContactNumber" type="xs:string" />
+              <xs:element minOccurs="0" name="customerEmail" type="xs:string" />
+              <xs:element minOccurs="0" name="customerFirstName" type="xs:string" />
+              <xs:element minOccurs="0" name="customerId" type="xs:string" />
+              <xs:element minOccurs="0" name="customerLastName" type="xs:string" />
+              <xs:element minOccurs="0" name="customerTrxRef" type="xs:string" />
+              <xs:element minOccurs="0" name="ibsLoggerUpdateReferenceId" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaCustomerCareGetProductsResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaCustomerCareGetProductsResultMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaLoggerUpdateResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaLoggerUpdateResultMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaRtppPaymentResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaRtppPaymentResultMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="paymentChannel" type="xs:string" />
+              <xs:element minOccurs="0" name="payuMerchantId" type="xs:string" />
+              <xs:element minOccurs="0" name="selectedEwalletForPayment" type="xs:string" />
+              <xs:element minOccurs="0" name="soulsticeISwitchSubQueryBankCount" type="xs:string" />
+              <xs:element minOccurs="0" name="soulsticeISwitchSubQueryResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="soulsticeISwitchSubQueryResultMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="soulsticePaymentTransactionId" type="xs:string" />
+              <xs:element minOccurs="0" name="soulsticeSubmitPaymentResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="soulsticeSubmitPaymentResultMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="soulsticeUmmDataHolderResponseMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="soulsticeUmmDataHolderResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionDate" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionReference" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionStatus" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionStatusDescription" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionType" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="globalpay">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="basketAmountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="basketCurrency" type="xs:string" />
+              <xs:element minOccurs="0" name="basketDescription" type="xs:string" />
+              <xs:element minOccurs="0" name="customerContactNumber" type="xs:string" />
+              <xs:element minOccurs="0" name="customerEmail" type="xs:string" />
+              <xs:element minOccurs="0" name="customerFirstName" type="xs:string" />
+              <xs:element minOccurs="0" name="customerId" type="xs:string" />
+              <xs:element minOccurs="0" name="customerLastName" type="xs:string" />
+              <xs:element minOccurs="0" name="customerTrxRef" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaCustomerCareGetProductsResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaCustomerCareGetProductsResultMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaLoggerUpdateResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaLoggerUpdateResultMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaRtppPaymentResultCode" type="xs:string" />
+              <xs:element minOccurs="0" name="mcaRtppPaymentResultMsg" type="xs:string" />
+              <xs:element minOccurs="0" name="paymentChannel" type="xs:string" />
+              <xs:element minOccurs="0" name="payuMerchantId" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionDate" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionReference" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionStatus" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionStatusDescription" type="xs:string" />
+              <xs:element minOccurs="0" name="transactionType" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="customField">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="key" type="xs:string" />
+              <xs:element minOccurs="0" name="value" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="credit">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="transactionRecord">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="anonymousUser" type="xs:string" />
+              <xs:element minOccurs="0" name="deductionDay" type="xs:string" />
+              <xs:element minOccurs="0" name="endDate" type="xs:string" />
+              <xs:element minOccurs="0" name="frequency" type="xs:string" />
+              <xs:element minOccurs="0" name="managedBy" type="xs:string" />
+              <xs:element minOccurs="0" name="recurrences" type="xs:string" />
+              <xs:element minOccurs="0" name="startDate" type="xs:string" />
+              <xs:element minOccurs="0" name="statementDescription" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="abstractCollection" abstract="true">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="abstractList" abstract="true">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:abstractCollection">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="arrayList">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:abstractList">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="tokenizedPaymentMethodValue">
+        <xs:sequence>
+          <xs:element name="hashOrder" type="xs:int" />
+          <xs:element name="hashParticipant" type="xs:boolean" />
+          <xs:element name="sensitiveData" type="xs:boolean" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="doTransactionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns2:DoTransactionResponseMessage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="bankDepositDetails">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:iPaymentMethod">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+              <xs:element minOccurs="0" name="amountInCents" type="xs:string" />
+              <xs:element minOccurs="0" name="bankName" type="xs:string" />
+              <xs:element minOccurs="0" name="branchCode" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="recurringDetails">
+        <xs:complexContent mixed="false">
+          <xs:extension base="ns1:PayUMapLoader">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="deductionDay" type="xs:string" />
+              <xs:element minOccurs="0" name="frequency" type="xs:string" />
+              <xs:element minOccurs="0" name="recurrences" type="xs:string" />
+              <xs:element minOccurs="0" name="recurringPaymentToken" type="xs:string" />
+              <xs:element minOccurs="0" name="statementDescription" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="secure3D">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="secure3DId" type="xs:string" />
+          <xs:element minOccurs="0" name="secure3DUrl" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="managePaymentMethod">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Api" type="xs:string" />
+          <xs:element minOccurs="0" name="Safekey" type="xs:string" />
+          <xs:element minOccurs="0" name="managePaymentMethodType" type="tns:managePaymentMethodType" />
+          <xs:element minOccurs="0" name="AdditionalInformation" type="tns:additionalInfo" />
+          <xs:element minOccurs="0" name="Customer" type="tns:customer" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Customfield" type="tns:customField" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="managePaymentMethodResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns3:ManagePaymentMethodResponseMessage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="doDeleteTransaction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Api" type="xs:string" />
+          <xs:element minOccurs="0" name="Safekey" type="xs:string" />
+          <xs:element minOccurs="0" name="deleteTransactionType" type="tns:deleteTransactionType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Customfield" type="tns:customField" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="doDeleteTransactionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns3:DeleteTransactionResponseMessage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getTransaction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Api" type="xs:string" />
+          <xs:element minOccurs="0" name="Safekey" type="xs:string" />
+          <xs:element minOccurs="0" name="AdditionalInformation" type="tns:additionalInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getTransactionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns4:GetTransactionResponseMessage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getLookupTransaction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Api" type="xs:string" />
+          <xs:element minOccurs="0" name="Safekey" type="xs:string" />
+          <xs:element minOccurs="0" name="lookupTransactionType" type="tns:lookupTransactionType" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Customfield" type="tns:customField" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getLookupTransactionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns6:LookupTransactionResponseMessage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="setTransaction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Api" type="xs:string" />
+          <xs:element minOccurs="0" name="Safekey" type="xs:string" />
+          <xs:element minOccurs="0" name="TransactionType" type="tns:transactionType" />
+          <xs:element minOccurs="0" name="Stage" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AdditionalInformation" type="tns:additionalInfo" />
+          <xs:element minOccurs="0" name="Customer" type="tns:customer" />
+          <xs:element minOccurs="0" name="Basket" type="tns:basket" />
+          <xs:element minOccurs="0" name="Fraud" type="tns:fraud" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Creditcard" type="tns:creditCard" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Eft" type="tns:eft" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Loyalty" type="tns:loyaltyCard" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BankTransfer" type="tns:bankTransfer" />
+          <xs:element minOccurs="0" name="Ebucks" type="tns:ebucks" />
+          <xs:element minOccurs="0" name="Autopay" type="tns:autoPay" />
+          <xs:element minOccurs="0" name="Soulstace" type="tns:soulstace" />
+          <xs:element minOccurs="0" name="Globalpay" type="tns:globalpay" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Customfield" type="tns:customField" />
+          <xs:element minOccurs="0" name="TransactionRecord" type="tns:transactionRecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="setTransactionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns7:SetTransactionResponseMessage" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hi">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="hiResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="transactionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="LOOKUP" />
+          <xs:enumeration value="MANAGE" />
+          <xs:enumeration value="MSISDN_LOOKUP" />
+          <xs:enumeration value="EFFECT_STAGING" />
+          <xs:enumeration value="RESERVE" />
+          <xs:enumeration value="RESERVE_CANCEL" />
+          <xs:enumeration value="PAYMENT" />
+          <xs:enumeration value="BILL_PAYMENT" />
+          <xs:enumeration value="FINALIZE" />
+          <xs:enumeration value="BALANCE" />
+          <xs:enumeration value="MINI_STATEMENT" />
+          <xs:enumeration value="REGISTER" />
+          <xs:enumeration value="CREDIT" />
+          <xs:enumeration value="PARTIAL_CREDIT" />
+          <xs:enumeration value="TRANSFER" />
+          <xs:enumeration value="VERIFY_TRANSACTION" />
+          <xs:enumeration value="REGISTER_LINK" />
+          <xs:enumeration value="TOPUP_RESERVE" />
+          <xs:enumeration value="TOPUP_FINALIZE" />
+          <xs:enumeration value="TOPUP_CANCEL" />
+          <xs:enumeration value="TOPUP" />
+          <xs:enumeration value="PAYOUT" />
+          <xs:enumeration value="COLLECT" />
+          <xs:enumeration value="ACCOUNT_LOOKUP" />
+          <xs:enumeration value="RECURRING_PAYMENT" />
+          <xs:enumeration value="RECURRING_PAYMENT_SETUP" />
+          <xs:enumeration value="DEBIT_ORDER" />
+          <xs:enumeration value="DEBIT_ORDER_SETUP" />
+          <xs:enumeration value="DEBIT_ORDER_CANCEL" />
+          <xs:enumeration value="SUBSCRIPTION_PAYMENT" />
+          <xs:enumeration value="SUBSCRIPTION_PAYMENT_SETUP" />
+          <xs:enumeration value="RECURRING_TOKENISE" />
+          <xs:enumeration value="REDEEM_UKASH_VOUCHER" />
+          <xs:enumeration value="ADD_CREDITCARD" />
+          <xs:enumeration value="EVENT_CARDPURCHASE" />
+          <xs:enumeration value="VAS_SPEND" />
+          <xs:enumeration value="VAS_PAY_RECIPIENT_KNOWN" />
+          <xs:enumeration value="VAS_PAY_RECIPIENT_UNKNOWN" />
+          <xs:enumeration value="PROFILE_UPDATE" />
+          <xs:enumeration value="LOG_JOURNAL_ENTRY" />
+          <xs:enumeration value="LOG_JOURNAL_ENTRY_REVERSE" />
+          <xs:enumeration value="PAYU_DEPOSIT" />
+          <xs:enumeration value="CHECK_CUST_MAX_BALANCE" />
+          <xs:enumeration value="VAS_LOOKUP" />
+          <xs:enumeration value="VAS_PROCESS" />
+          <xs:enumeration value="VAS_CREDIT" />
+          <xs:enumeration value="PENDING_3DS_COMPLETION" />
+          <xs:enumeration value="ONCE_OFF_PAYMENT_AND_DEBIT_ORDER" />
+          <xs:enumeration value="ONCE_OFF_RESERVE_AND_DEBIT_ORDER" />
+          <xs:enumeration value="P2P" />
+          <xs:enumeration value="VALIDATION" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="authenticationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NA" />
+          <xs:enumeration value="HANDSHAKE" />
+          <xs:enumeration value="TOKEN" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="managePaymentMethodType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TOKEN" />
+          <xs:enumeration value="HANDSHAKE" />
+          <xs:enumeration value="HANDSHAKE_SETUP_ACCOUNT" />
+          <xs:enumeration value="PROFILE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="deleteTransactionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TOKEN" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="payloadStatusEnum">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NEW" />
+          <xs:enumeration value="STAGED" />
+          <xs:enumeration value="PROCESSING" />
+          <xs:enumeration value="SUCCESSFUL" />
+          <xs:enumeration value="FAILED" />
+          <xs:enumeration value="TIMEOUT" />
+          <xs:enumeration value="EXPIRED" />
+          <xs:enumeration value="AWAITING_PAYMENT" />
+          <xs:enumeration value="PARTIAL_PAYMENT" />
+          <xs:enumeration value="OVER_PAYMENT" />
+          <xs:enumeration value="LATE_PAYMENT" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="lookupTransactionType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TOKEN" />
+          <xs:enumeration value="HANDSHAKE" />
+          <xs:enumeration value="PAYMENT_METHODS" />
+          <xs:enumeration value="SECRET_QUESTIONS" />
+          <xs:enumeration value="ACCOUNT" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://jaxb.dev.java.net/array" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="stringArray" final="#all">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getTransaction">
+    <wsdl:part name="parameters" element="tns:getTransaction" />
+  </wsdl:message>
+  <wsdl:message name="managePaymentMethodResponse">
+    <wsdl:part name="parameters" element="tns:managePaymentMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="setTransactionResponse">
+    <wsdl:part name="parameters" element="tns:setTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="hi">
+    <wsdl:part name="parameters" element="tns:hi" />
+  </wsdl:message>
+  <wsdl:message name="hiResponse">
+    <wsdl:part name="parameters" element="tns:hiResponse" />
+  </wsdl:message>
+  <wsdl:message name="doTransactionResponse">
+    <wsdl:part name="parameters" element="tns:doTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="managePaymentMethod">
+    <wsdl:part name="parameters" element="tns:managePaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="doTransaction">
+    <wsdl:part name="parameters" element="tns:doTransaction" />
+  </wsdl:message>
+  <wsdl:message name="doDeleteTransaction">
+    <wsdl:part name="parameters" element="tns:doDeleteTransaction" />
+  </wsdl:message>
+  <wsdl:message name="doDeleteTransactionResponse">
+    <wsdl:part name="parameters" element="tns:doDeleteTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLookupTransactionResponse">
+    <wsdl:part name="parameters" element="tns:getLookupTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="setTransaction">
+    <wsdl:part name="parameters" element="tns:setTransaction" />
+  </wsdl:message>
+  <wsdl:message name="getTransactionResponse">
+    <wsdl:part name="parameters" element="tns:getTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLookupTransaction">
+    <wsdl:part name="parameters" element="tns:getLookupTransaction" />
+  </wsdl:message>
+  <wsdl:portType name="EnterpriseAPISoap">
+    <wsdl:operation name="doTransaction">
+      <wsdl:input name="doTransaction" message="tns:doTransaction" />
+      <wsdl:output name="doTransactionResponse" message="tns:doTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="managePaymentMethod">
+      <wsdl:input name="managePaymentMethod" message="tns:managePaymentMethod" />
+      <wsdl:output name="managePaymentMethodResponse" message="tns:managePaymentMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="doDeleteTransaction">
+      <wsdl:input name="doDeleteTransaction" message="tns:doDeleteTransaction" />
+      <wsdl:output name="doDeleteTransactionResponse" message="tns:doDeleteTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransaction">
+      <wsdl:input name="getTransaction" message="tns:getTransaction" />
+      <wsdl:output name="getTransactionResponse" message="tns:getTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getLookupTransaction">
+      <wsdl:input name="getLookupTransaction" message="tns:getLookupTransaction" />
+      <wsdl:output name="getLookupTransactionResponse" message="tns:getLookupTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setTransaction">
+      <wsdl:input name="setTransaction" message="tns:setTransaction" />
+      <wsdl:output name="setTransactionResponse" message="tns:setTransactionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="hi">
+      <wsdl:input name="hi" message="tns:hi" />
+      <wsdl:output name="hiResponse" message="tns:hiResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EnterpriseAPISoapServiceSoapBinding" type="tns:EnterpriseAPISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="doTransaction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="doTransaction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="doTransactionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="managePaymentMethod">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="managePaymentMethod">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="managePaymentMethodResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doDeleteTransaction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="doDeleteTransaction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="doDeleteTransactionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransaction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getTransaction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTransactionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLookupTransaction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getLookupTransaction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getLookupTransactionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setTransaction">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="setTransaction">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setTransactionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hi">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="hi">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="hiResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EnterpriseAPISoapService">
+    <wsdl:port name="EnterpriseAPISoapPort" binding="tns:EnterpriseAPISoapServiceSoapBinding">
+      <soap:address location="https://staging.payu.co.za/service/PayUAPI" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
